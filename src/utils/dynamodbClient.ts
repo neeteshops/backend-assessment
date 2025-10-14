@@ -14,7 +14,7 @@ export function createDynamoDBClient(): DynamoDBClient {
     retryMode: 'standard'
   };
 
-  console.log('🔌 Connecting to DynamoDB at:', config);
+  console.log('🔌 Connecting to DynamoDB at:', config.endpoint);
 
   return new DynamoDBClient(config);
 }

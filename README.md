@@ -22,4 +22,38 @@ A TypeScript-based solution for balance retrieval and transaction processing wit
 
 1. Install dependencies:
 ```bash
+# 1. Install dependencies
 npm install
+
+# 2. Start DynamoDB Local (you need Docker for this)
+docker run -d -p 8000:8000 --name dynamodb-local amazon/dynamodb-local
+
+# 4. run the API server
+npm run dev:server
+
+
+
+#try this apis
+
+# Get balance
+curl http://localhost:3000/balance/1
+
+# Process credit transaction
+curl -X POST http://localhost:3000/transaction \
+  -H "Content-Type: application/json" \
+  -d '{
+    "idempotentKey": "curl-test-1",
+    "userId": "1",
+    "amount": "10",
+    "type": "credit"
+  }'
+
+# Process debit transaction
+curl -X POST http://localhost:3000/transaction \
+  -H "Content-Type: application/json" \
+  -d '{
+    "idempotentKey": "test-debit-1",
+    "userId": "1",
+    "amount": "10",
+    "type": "debit"
+  }'
