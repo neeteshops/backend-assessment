@@ -57,3 +57,15 @@ curl -X POST http://localhost:3000/transaction \
     "amount": "10",
     "type": "debit"
   }'
+
+#if you want run test cases
+
+# Run only unit tests (fast)
+npm run test:unit
+
+# Run only integration tests (requires DynamoDB)
+npm run test:integration
+
+# Run all tests
+npm test
+  
