@@ -58,7 +58,7 @@ curl -X POST http://localhost:3000/transaction \
     "type": "debit"
   }'
 
-#if you want run test cases
+#if you want to run test cases
 
 # Run only unit tests (fast)
 npm run test:unit
